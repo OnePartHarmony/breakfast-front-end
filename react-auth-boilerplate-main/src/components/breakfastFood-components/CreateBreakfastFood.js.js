@@ -1,7 +1,6 @@
 import React, { useState } from "react"
-import { Label } from "react-bootstrap"
 import { breakfastFoodCreate } from "../../api/breakfastFood"
-import messages from "../shared/AutoDismissAlert/messages"
+import { useNavigate } from "react-router-dom"
 
 const BreakfastFoodCreate = (props) => {
 
@@ -11,6 +10,8 @@ const BreakfastFoodCreate = (props) => {
     }
 
     const [breakfastFood, setBreakfastFood] = useState(defaultBreakfastFood)
+
+    const navigate = useNavigate()
 
     const handleChange = (e) => {
         setBreakfastFood(prevBreakfastFood => {
@@ -26,6 +27,7 @@ const BreakfastFoodCreate = (props) => {
                     message: "Breakfast Food created.",
                     variant: "success"
                 })
+                navigate("/breakfastFoods")
             })
             .catch((err) => {
                 props.msgAlert({
