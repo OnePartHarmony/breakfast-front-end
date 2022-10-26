@@ -22,7 +22,7 @@ const BreakfastFoodIndex = ({user, msgAlert}) => {
 
     const allBreakfastFoodsJSX = allBreakfastFoods.map(breakfastFood => {
         return(
-            <Link to={breakfastFood._id} key={breakfastFood._id}>
+            <Link to={"/breakfastFoods/" + breakfastFood._id} key={breakfastFood._id}>
                 <li>
                     <h4>{breakfastFood.name}</h4>
                     <p>{breakfastFood.isSweet === true ? "sweet" : "savory"}</p>
@@ -33,7 +33,7 @@ const BreakfastFoodIndex = ({user, msgAlert}) => {
 
     return(
         <div style={{textAlign: "center"}}>
-            <ul>{allBreakfastFoodsJSX}</ul>
+            <ul className="list-group">{allBreakfastFoodsJSX}</ul>
         </div>
     )
 }
